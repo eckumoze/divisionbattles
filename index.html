@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DB — Division battles</title>
+  <meta name="description" content="Соревновательная лига по Dota 2 с системой дивизионов. Турниры, призы, медиа." />
+  <meta property="og:title" content="DIVISION BATTLES — киберспортивная лига по Dota 2" />
+  <meta property="og:description" content="Соревновательная лига по Dota 2, построенная на системе дивизионов. Заяви команду или найди тимейтов!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://divisionbattles.ru" />
+  <meta property="og:image" content="images/logo.png" />
+  <meta property="og:locale" content="ru_RU" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#f59e0b" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="DB" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div id="progressBar"></div>
+    <div class="header-inner">
+      <a href="#" class="header-logo">
+        <img src="images/logo.png" alt="DB" loading="lazy" />
+      </a>
+
+      <ul class="nav" id="nav">
+        <li class="nav-item"><a href="#about" class="nav-link">О дивизионах</a></li>
+        <li class="nav-item"><a href="#format" class="nav-link">Формат</a></li>
+        <li class="nav-item"><a href="#players" class="nav-link">Игрокам</a></li>
+        <li class="nav-item"><a href="#top" class="nav-link">Рейтинг</a></li>
+        <li class="nav-item"><a href="#season" class="nav-link">Сплит</a></li>
+        <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+        <li><a href="#form" class="nav-cta"><i class="fa-solid fa-plus"></i> Участвовать</a></li>
+      </ul>
+
+      <div style="display:flex;align-items:center;gap:8px;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+          <i class="fa-solid fa-moon"></i><i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="burger" id="burger" aria-label="Меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-gradient hero-gradient-anim"></div>
+
+    <div class="hero-content" style="position:relative;">
+      <img src="images/fon.png" alt="" loading="lazy" id="heroBg" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:130%;height:130%;object-fit:contain;pointer-events:none;z-index:0;opacity:0.4;" />
+      <div style="position:relative;z-index:1;">
+        <div class="hero-badge reveal">
+          #БИТВА ДИВИЗИОНОВ
+        </div>
+
+        <h1 class="reveal reveal-d1">
+          <span class="gradient">DIVISION</span><br />
+          BATTLES
+        </h1>
+
+        <p class="hero-sub reveal reveal-d2">Легенды начинаются с первого матча</p>
+        <p class="hero-desc reveal reveal-d2">Соревновательная лига по Dota 2, построенная на системе дивизионов, где каждая команда проходит путь от новичков до элиты, доказывая свое превосходство сплит за сплитом.</p>
+
+        <div class="hero-buttons reveal reveal-d3">
+          <a href="#form" class="btn btn-primary"><i class="fa-solid fa-gamepad"></i> Заявить команду</a>
+          <button class="btn btn-secondary" id="shareBtn"><i class="fa-solid fa-share-nodes"></i> Поделиться</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- О ЛИГЕ -->
+  <section class="about section grid-bg" id="about" style="background-image:url('images/kubok.png');background-size:350px;background-position:center bottom;background-repeat:no-repeat;background-blend-mode:overlay;background-attachment:scroll;">
+    <div class="side-emblem right">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="9" stroke="rgba(245,158,11,0.08)" stroke-width="0.6" fill="none"/>
+        <path d="M20,2 L20,7 M20,33 L20,38 M2,20 L7,20 M33,20 L38,20" stroke="rgba(245,158,11,0.06)" stroke-width="0.5"/>
+        <path d="M7,7 L10,10 M30,30 L33,33 M7,33 L10,30 M30,10 L33,7" stroke="rgba(245,158,11,0.04)" stroke-width="0.4"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h2><span style="color:#f59e0b;">#Киберспортивная лига</span> <span style="color:var(--text-primary);">с системой дивизионов.</span></h2>
+          <p><strong>DB — DIVISION BATTLES</strong> — любительская лига по <strong>Dota 2</strong> для игроков, стремящихся к соревновательному развитию и командному росту.</p>
+          <p><strong>Наша цель</strong> — создать стабильную и честную экосистему для команд любого уровня подготовки. Здесь важны не только отдельные победы, но и долгосрочное развитие состава, стратегия и командная дисциплина. Призовой фонд будет формироваться и зависить от числа команд.</p>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-card reveal reveal-d1 tilt">
+            <div class="num"><span class="counter" data-target="1">0</span></div>
+            <div class="label">Строгая дисциплина</div>
+            <div class="suffix">по Dota 2</div>
+            <div class="stat-bar"><div class="stat-bar-fill" data-pct="100"></div></div>
+          </div>
+          <div class="stat-card reveal reveal-d2 tilt">
+            <div class="num"><span class="counter" data-target="40">0</span>+</div>
+            <div class="label">Игроков</div>
+            <div class="suffix">уже с нами</div>
+            <div class="stat-bar"><div class="stat-bar-fill" data-pct="100"></div></div>
+          </div>
+          <div class="stat-card reveal reveal-d3 tilt">
+            <div class="num"><span class="counter" data-target="2">0</span></div>
+            <div class="label">Дивизиона</div>
+            <div class="suffix">в первом сплите</div>
+            <div class="stat-bar"><div class="stat-bar-fill" data-pct="100"></div></div>
+          </div>
+          <div class="stat-card reveal reveal-d4 tilt">
+            <div class="num"><span class="counter" data-target="20">0</span></div>
+            <div class="label">Команд</div>
+            <div class="suffix">участников</div>
+            <div class="stat-bar"><div class="stat-bar-fill" data-pct="100"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="rune-float r4">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="6" stroke="rgba(245,158,11,0.08)" stroke-width="0.5" fill="none"/>
+          <circle cx="8" cy="8" r="2" fill="rgba(245,158,11,0.06)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФОРМАТ -->
+  <section class="section section-format grid-bg" id="format">
+    <div class="side-emblem left">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,2 38,20 20,38 2,20" stroke="rgba(245,158,11,0.08)" stroke-width="0.6" fill="none"/>
+        <polygon points="20,8 32,20 20,32 8,20" stroke="rgba(245,158,11,0.05)" stroke-width="0.4" fill="none"/>
+      </svg>
+    </div>
+    <div class="container">
+      <h2 class="section-title reveal" data-num="01">#ФОРМАТ ТУРНИРА</h2>
+      <p class="section-subtitle reveal">Как устроена система и почему это не просто однодневный турнир</p>
+
+      <div class="format-cards">
+        <div class="format-card reveal reveal-d1 tilt">
+          <div class="format-icon"><i class="fa-solid fa-building"></i></div>
+          <h3><i class="fa-solid fa-ranking-star" style="color:#f59e0b"></i> Дивизионы</h3>
+          <p>Система дивизионов с повышением и понижением по итогам сезона. Регулярный сезон завершается плей-офф стадией для лучших команд каждого дивизиона.
+Подняться в более высокий дивизион,
+сохранить свое место
+или покинуть текущий дивизион по результатам выступления выбирать Вам.</p>
+        </div>
+        <div class="format-card reveal reveal-d2 tilt">
+          <div class="format-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <h3><i class="fa-solid fa-user-group" style="color:#f59e0b"></i> Составы</h3>
+          <p>В заявке команды может находиться до 10 игроков, что позволяет гибко управлять составом и заменами.
+Статистика игроков и команд ведется на протяжении всего сезона.</p>
+        </div>
+
+        <div class="format-card reveal reveal-d3 tilt">
+          <div class="format-icon"><i class="fa-solid fa-clock"></i></div>
+          <h3><i class="fa-regular fa-calendar" style="color:#f59e0b"></i> Расписание игр</h3>
+          <p>Один матч в неделю позволяет совмещать участие в лиге с работой, учебой и другими турнирами. Капитаны команд сами обсуждают дату игр.
+            Каждая команда проводит один матч в неделю.
+Все встречи проходят в формате Best of 3 (BO3).
+          </p>
+        </div>
+      </div>
+      <div class="rune-float r1">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4,8 L8,4 L12,8 L8,12 Z" stroke="rgba(245,158,11,0.08)" stroke-width="0.5" fill="none"/>
+          <line x1="8" y1="4" x2="8" y2="12" stroke="rgba(245,158,11,0.05)" stroke-width="0.4"/>
+        </svg>
+      </div>
+      <div class="rune-float r5">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <line x1="4" y1="4" x2="12" y2="12" stroke="rgba(245,158,11,0.07)" stroke-width="0.5"/>
+          <line x1="12" y1="4" x2="4" y2="12" stroke="rgba(245,158,11,0.07)" stroke-width="0.5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДЛЯ ИГРОКОВ -->
+  <section class="about section grid-bg" id="players">
+    <div class="container">
+      <h2 class="section-title reveal" data-num="02">#ЧТО ПОЛУЧАЮТ ИГРОКИ?</h2>
+      <p class="section-subtitle reveal">Всё для комфортной и интересной игры</p>
+
+      <div class="benefits-grid">
+        <div class="benefit reveal reveal-d1 tilt">
+          <div class="bi"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h4>Сезонная система развития
+</h4>
+          <p>Каждый сезон — это новый шанс подняться выше, заработать репутацию и вписать свою команду в историю лиги.</p>
+        </div>
+        <div class="benefit reveal reveal-d1 tilt">
+          <div class="bi"><i class="fa-solid fa-clock"></i></div>
+          <h4>Продвижение по дивизионам</h4>
+          <p>Команды не зависят от приглашений или связей — только результаты на сервере определяют ваш путь наверх.</p>
+        </div>
+        <div class="benefit reveal reveal-d2">
+          <div class="bi"><i class="fa-solid fa-coins"></i></div>
+          <h4>Удобный график</h4>
+          <p>Всего одна встреча с соперником в неделю позволяет участникам готовиться к играм без перегрузки и сохранять высокий уровень мотивации.</p>
+        </div>
+        <div class="benefit reveal reveal-d2">
+          <div class="bi"><i class="fa-solid fa-gift"></i></div>
+          <h4>Подробная статистика</h4>
+          <p>Игроки могут отслеживать свои показатели, эффективность героев, винрейт и прогресс на протяжении всего сезона.</p>
+        </div>
+        <div class="benefit reveal reveal-d3">
+          <div class="bi"><i class="fa-solid fa-microphone"></i></div>
+          <h4> Прозрачная система рейтинга
+</h4>
+          <p>Все команды находятся в понятной турнирной структуре, где каждое очко имеет значение.</p>
+        </div>
+        <div class="benefit reveal reveal-d3">
+          <div class="bi"><i class="fa-solid fa-gamepad"></i></div>
+          <h4>Простор для тактики</h4>
+          <p>Ростер до 10 игроков позволяет использовать разные стратегии, ротации состава и подготовку под конкретных соперников.</p>
+        
+        </div>
+        <div class="benefit reveal reveal-d3">
+          <div class="bi"><i class="fa-solid fa-microphone"></i></div>
+          <h4> Медийное освещение
+</h4>
+          <p>Лучшие матчи сезона могут попадать на трансляции, обзоры, социальные сети и официальные ресурсы лиги.</p>
+        </div>
+        <div class="benefit reveal reveal-d3">
+          <div class="bi"><i class="fa-solid fa-gamepad"></i></div>
+          <h4>Активное сообщество</h4>
+          <p>Участники становятся частью единой экосистемы игроков, капитанов, аналитиков и болельщиков.</p>
+        
+        </div>
+        <div class="benefit reveal reveal-d3">
+          <div class="bi"><i class="fa-solid fa-microphone"></i></div>
+          <h4> Путь к профессиональной сцене
+</h4>
+          <p>Лига становится площадкой для поиска талантливых игроков, капитанов и тренеров, готовых заявить о себе на более высоком уровне.</p>
+        </div>
+        <div class="benefit reveal reveal-d3">
+          <div class="bi"><i class="fa-solid fa-gamepad"></i></div>
+          <h4>Защита от случайностей</h4>
+          <p>Формат BO3 снижает влияние одной неудачной карты и лучше определяет сильнейшую команду.</p>
+        
+        </div>
+        <div class="benefit reveal reveal-d3">
+          <div class="bi"><i class="fa-solid fa-microphone"></i></div>
+          <h4> История команды
+
+</h4>
+          <p>Все результаты сохраняются, формируя историю организации, которую можно отслеживать сезон за сезоном.</p>
+        </div>
+        <div class="benefit reveal reveal-d3">
+          <div class="bi"><i class="fa-solid fa-gamepad"></i></div>
+          <h4>Регулярная практика</h4>
+          <p>Постоянные официальные матчи помогают поддерживать форму и развивать командное взаимодействие.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ТОП -->
+  <section class="top-section section section-top grid-bg" id="top">
+    <div class="container">
+      <h2 class="section-title reveal" data-num="03">#ТОП ТЕСТОВОГО СЕЗОНА</h2>
+      <p class="section-subtitle reveal">Лучшие игроки и команды по итогам тестового сезона</p>
+
+      <div class="top-wrapper">
+        <div class="top-block reveal">
+          <h3><i class="fa-solid fa-crown"></i> Топ-3 игрока</h3>
+          <div class="top-list">
+            <div class="top-card">
+              <div class="top-rank">#1</div>
+              <div class="top-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);"><img src="images/gamer1.png" alt="AM" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></div>
+              <div class="top-info"><div class="name">eckumoze</div><div class="detail"><i class="fa-solid fa-crosshairs"></i> Игрок команды — DreamTeam</div></div>
+              <div class="top-stat"><div class="val">18</div><div class="lbl">MVP</div></div>
+              <div class="top-medal">🥇</div>
+            </div>
+            <div class="top-card">
+              <div class="top-rank">#2</div>
+              <div class="top-avatar" style="background:linear-gradient(135deg,#a0a0a0,#787878);"><img src="images/game3.jpeg" alt="SK" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></div>
+              <div class="top-info"><div class="name">Pablo</div><div class="detail"><i class="fa-solid fa-crosshairs"></i> Игрок команды — Rodina</div></div>
+              <div class="top-stat"><div class="val">14</div><div class="lbl">MVP</div></div>
+              <div class="top-medal">🥈</div>
+            </div>
+            <div class="top-card">
+              <div class="top-rank">#3</div>
+              <div class="top-avatar" style="background:linear-gradient(135deg,#b87333,#a0642a);"><img src="images/gamer2.jpg" alt="VL" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></div>
+              <div class="top-info"><div class="name">chOOp</div><div class="detail"><i class="fa-solid fa-crosshairs"></i> Игрок команды — Look3D</div></div>
+              <div class="top-stat"><div class="val">11</div><div class="lbl">MVP</div></div>
+              <div class="top-medal">🥉</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="top-block reveal reveal-d2">
+          <h3><i class="fa-solid fa-trophy"></i> Топ-3 команды</h3>
+          <div class="top-list">
+            <div class="top-card">
+              <div class="top-rank">#1</div>
+              <div class="top-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);"><img src="images/team1.png" alt="HC" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></div>
+              <div class="top-info"><div class="name">DreamTeam</div><div class="detail">5–1</div></div>
+              <div class="top-stat"><div class="val">28</div><div class="lbl">очков</div></div>
+              <div class="top-medal">🏆</div>
+            </div>
+            <div class="top-card">
+              <div class="top-rank">#2</div>
+              <div class="top-avatar" style="background:linear-gradient(135deg,#a0a0a0,#787878);"><img src="images/team2.png" alt="C9" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></div>
+              <div class="top-info"><div class="name">Rodina</div><div class="detail">4–2</div></div>
+              <div class="top-stat"><div class="val">22</div><div class="lbl">очков</div></div>
+              <div class="top-medal">🥈</div>
+            </div>
+            <div class="top-card">
+              <div class="top-rank">#3</div>
+              <div class="top-avatar" style="background:linear-gradient(135deg,#b87333,#a0642a);"><img src="images/team3.png" alt="ST" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></div>
+              <div class="top-info"><div class="name">GGFF</div><div class="detail">3–3</div></div>
+              <div class="top-stat"><div class="val">19</div><div class="lbl">очков</div></div>
+              <div class="top-medal">🥉</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ТЕЛЕГРАМ -->
+  <section class="tg-section section" id="telegram">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">#ТЕЛЕГРАМ КАНАЛ DB</h2>
+        <p class="section-subtitle">Анонсы матчей, статистика, розыгрыши. Вся актуальная информация в телеграм канале!</p>
+        <a href="https://t.me/divisionbattles" target="_blank" class="tg-btn">
+          <i class="fa-brands fa-telegram"></i> Подписаться
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1-й СЕЗОН -->
+  <section class="about section" id="season">
+    <div class="season-aegis">
+      <img src="images/aegis.png" alt="" loading="lazy" />
+    </div>
+    <div class="container">
+      <h2 class="section-title reveal" data-num="04">#ПЕРВЫЙ СПЛИТ НАЧИНАЕТСЯ</h2>
+      <p class="section-subtitle reveal">Первый сплит DB — начнется уже скоро!</p>
+
+      <div class="season-info reveal">
+        <div class="season-item tilt">
+          <div class="si"><i class="fa-solid fa-calendar-check"></i></div>
+          <div class="sv" style="font-size:22px;">1 Июля</div>
+          <div class="sl">Регистрация до</div>
+        </div>
+        <div class="season-item tilt">
+          <div class="si"><i class="fa-solid fa-calendar-days"></i></div>
+          <div class="sv" style="font-size:22px;">Сентябрь - Октябрь</div>
+          <div class="sl">Даты проведения</div>
+        </div>
+        <div class="season-item tilt">
+          <div class="si"><i class="fa-solid fa-coins"></i></div>
+          <div class="sv" style="font-size:18px;">зависит</div>
+          <div class="sl">от числа команд</div>
+        </div>
+      </div>
+
+      <div class="timer-wrap reveal">
+        <h3><i class="fa-solid fa-hourglass-half"></i> До конца регистрации:</h3>
+        <div class="timer" id="timer" data-deadline="2026-07-01T12:00:00+03:00">
+          <div class="timer-item"><div class="n" id="days">00</div><div class="l">Дней</div></div>
+          <div class="timer-item"><div class="n" id="hours">00</div><div class="l">Часов</div></div>
+          <div class="timer-item"><div class="n" id="minutes">00</div><div class="l">Минут</div></div>
+          <div class="timer-item"><div class="n" id="seconds">00</div><div class="l">Секунд</div></div>
+        </div>
+        <a href="#form" class="tg-btn" style="margin-top:80px;">Участвовать</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 ШАГА -->
+  <section class="section" id="steps">
+    <div class="container">
+      <h2 class="section-title reveal" data-num="05">КАК ПОПАСТЬ В DIVISION BATTLES</h2>
+      <p class="section-subtitle reveal">Следуй инструкции</p>
+
+      <div class="steps-grid">
+        <div class="step-card reveal reveal-d1 tilt">
+          <div class="step-num">01</div>
+          <h4><i class="fa-solid fa-pen-to-square"></i> Заполните форму</h4>
+          <p>Оставьте заявку ниже или напишите нам в Telegram — мы ответим на все вопросы. И пришлем инвайт на участие команды. </p>
+        </div>
+        <div class="step-card reveal reveal-d2 tilt">
+          <div class="step-num">02</div>
+          <h4><i class="fa-solid fa-users"></i> Зарегистрируйте команду</h4>
+          <p>Мы поможем пройти регистрацию команд или отдельных участников.</p>
+        </div>
+        <div class="step-card reveal reveal-d3 tilt">
+          <div class="step-num">03</div>
+          <h4><i class="fa-solid fa-bell"></i> Следите за новостями</h4>
+          <p>Подписывайтесь на Telegram канал DB и ждите старта сплита!</p>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;margin-top:20px;">
+        <div class="step-card tilt" style="max-width:380px;width:100%;">
+          <div class="step-num">04</div>
+          <h4><i class="fa-solid fa-users"></i> Нет команды?</h4>
+          <p>Оставь заявку и мы найдем тебе тимейтов.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="about section" id="faq">
+    <div class="container">
+      <h2 class="section-title reveal" data-num="06">#FAQ</h2>
+      <p class="section-subtitle reveal">Ответы на частые вопросы</p>
+      <div class="faq-list reveal" style="max-width:700px;margin:0 auto;">
+        <div class="faq-item">
+          <button class="faq-q"><span>Как попасть в лигу?</span><i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a">Заполните форму заявки на сайте или напишите в Telegram. Мы рассмотрим заявку и пришлем инвайт.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Сколько стоит участие?</span><i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a">Участие в лиге полностью бесплатное. Призовой фонд формируется из взносов партнёров.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Нужна ли команда?</span><i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a">Нет. Вы можете подать заявку как соло-игрок, и мы поможем найти команду под ваш уровень игры и роль.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Какой формат матчей?</span><i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a">Все матчи проходят в формате Best of 3 (BO3). Одна встреча в неделю.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Какой призовой фонд?</span><i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a">Призовой фонд первого сплита — зависит от числа команд.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>Как связаться с администрацией?</span><i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-a">Напишите в Telegram канал или в личные сообщения @divisionbattles.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- СПОНСОРЫ -->
+  <section class="about section" id="sponsors" style="padding-top:0;">
+    <div class="container">
+      <h2 class="section-title reveal" data-num="07">СПОНСОРЫ 1-ГО СПЛИТА</h2>
+      <p class="section-subtitle reveal">Вы можете стать нашим партнером и рекламировать свой бренд</p>
+
+      <div class="sponsor-carousel reveal">
+        <div class="sponsor-track" id="sponsorTrack">
+          <img class="sponsor-logo" src="images/logo1.png" alt="DB" loading="lazy" />
+          <img class="sponsor-logo" src="images/logo1.png" alt="DB" loading="lazy" />
+          <img class="sponsor-logo" src="images/logo1.png" alt="DB" loading="lazy" />
+          <img class="sponsor-logo" src="images/logo1.png" alt="DB" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФОРМА -->
+  <section class="section" id="form">
+    <div class="container">
+      <h2 class="section-title reveal" data-num="08">ПОЛУЧИ ИНВАЙТ ПРЯМО СЕЙЧАС!</h2>
+      <p class="section-subtitle reveal">Получить инвайт сможет не каждый, мы рассмотрим заявку и пришлем ответ.</p>
+<div class="section-subtitle reveal" style="color:var(--text-muted);font-size:13px;margin-top:-28px;">Чем подробнее вы заполните данные, тем выше шанс получить инвайт и стать частью<br><strong style="background:linear-gradient(135deg,#f59e0b,#d97706,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:15px;">DIVISION BATTLES</strong></div>
+
+      <div class="form-wrap reveal">
+        <div class="fg">
+          <label><i class="fa-solid fa-user"></i> Ваше имя</label>
+          <input type="text" id="formName" placeholder="Иван Иванов" />
+          <div class="error-text"></div>
+        </div>
+        <div class="fg">
+          <label><i class="fa-solid fa-address-card"></i> Как с вами связаться?</label>
+          <div class="toggle" id="contactToggle">
+            <button class="active" data-type="telegram"><i class="fa-brands fa-telegram"></i> Telegram</button>
+            <button data-type="phone"><i class="fa-solid fa-phone"></i> Phone</button>
+          </div>
+          <input type="text" id="formContact" placeholder="@username" />
+          <div class="error-text"></div>
+        </div>
+        <div id="captainFields">
+          <div class="fg">
+            <label><i class="fa-solid fa-store"></i> Название команды</label>
+            <input type="text" id="formBrand" placeholder="Название" />
+            <div class="error-text"></div>
+          </div>
+          <div class="fg">
+            <label><i class="fa-solid fa-users"></i> Состав команды</label>
+            <textarea id="formRoster" rows="6" placeholder="Пример:&#10;Иван &quot;Pockemon&quot; Семенов&#10;Олег &quot;HEROIC&quot; Иванов (капитан)&#10;Максим &quot;fROdo&quot; Степанов&#10;Алексей &quot;GORO&quot; Литвинов&#10;Марина &quot;MARMON&quot; Остапова" style="resize:vertical;min-height:150px;"></textarea>
+          </div>
+          <div class="fg">
+            <label><i class="fa-solid fa-trophy"></i> Рейтинг команды</label>
+            <select id="formTeamRating">
+              <option value="">Выберите диапазон</option>
+              <option value="0-2000">0 – 2000</option>
+              <option value="2000-3000">2000 – 3000</option>
+              <option value="3000-4000">3000 – 4000</option>
+              <option value="4000-5000">4000 – 5000</option>
+              <option value="5000-6000">5000 – 6000</option>
+              <option value="6000+">6000+</option>
+            </select>
+          </div>
+        </div>
+        <div id="soloFields" style="display:none;">
+          <div class="fg">
+            <label><i class="fa-solid fa-gamepad"></i> Роль</label>
+            <select id="formRole">
+              <option value="">Выберите роль</option>
+              <option value="carry">Керри</option>
+              <option value="mid">Мидер</option>
+              <option value="offlane">Офлейнер</option>
+              <option value="soft_support">Саппорт 4</option>
+              <option value="hard_support">Саппорт 5</option>
+              
+            </select>
+          </div>
+          <div class="fg">
+            <label><i class="fa-solid fa-trophy"></i> Ваш рейтинг</label>
+            <select id="formRating">
+              <option value="">Выберите диапазон</option>
+              <option value="0-2000">0 – 2000</option>
+              <option value="2000-3000">2000 – 3000</option>
+              <option value="3000-4000">3000 – 4000</option>
+              <option value="4000-5000">4000 – 5000</option>
+              <option value="5000-6000">5000 – 6000</option>
+              <option value="6000+">6000+</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label><i class="fa-solid fa-user-pen"></i> О себе</label>
+            <textarea id="formAbout" rows="2" placeholder="Расскажите о себе" style="resize:vertical;min-height:60px;"></textarea>
+          </div>
+        </div>
+        <div class="fg">
+          <label><i class="fa-solid fa-users"></i> Капитан или соло?</label>
+          <div class="rg">
+            <label><input type="radio" name="role" value="captain" checked /> Капитан — представляю команду</label>
+            <label><input type="radio" name="role" value="solo" /> Соло — ищу команду</label>
+          </div>
+          <div id="soloHint" style="display:none;margin-top:10px;padding:12px 16px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.08);border-radius:12px;font-size:13px;color:#f59e0b;text-align:center;">После отправки заявки ваш профиль будет доступен капитанам зарегистрированных команд. Чем подробнее заполнена анкета, тем выше шанс получить приглашение в состав, соответствующий вашему уровню игры и целям.</div>
+        </div>
+        <div class="fg">
+            <label class="cg">
+              <input type="checkbox" id="formAgree" checked />
+              Согласие на обработку персональных данных
+            </label>
+            <div class="error-text"></div>
+        </div>
+        <button class="btn btn-primary" id="formSubmit"><i class="fa-solid fa-rocket"></i> Отправить</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer class="footer">
+    <div class="container">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <div class="footer-copy">© DB CORPORATION. Все права защищены.</div>
+        <a href="privacy.html" style="color:var(--text-faint);text-decoration:none;font-size:12px;transition:color 0.3s;" onmouseover="this.style.color='var(--text-secondary)'" onmouseout="this.style.color='var(--text-faint)'">Политика конфиденциальности</a>
+        <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center;">
+          <a href="reglament.html" style="color:var(--text-faint);text-decoration:none;font-size:12px;transition:color 0.3s;" onmouseover="this.style.color='var(--text-secondary)'" onmouseout="this.style.color='var(--text-faint)'">Регламент</a>
+        </div>
+        <div class="footer-soc">
+          <a href="https://vk.com/divisionbattles" target="_blank" aria-label="VK"><i class="fa-brands fa-vk"></i></a>
+          <a href="https://t.me/divisionbattles" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+          <a href="https://www.youtube.com/@divisionbattles" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Наверх"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <canvas id="particles"></canvas>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <div class="modal-icon"><i class="fa-solid fa-check-circle"></i></div>
+      <div class="modal-title">Заявка принята!</div>
+      <div class="modal-text">Мы свяжемся с вами в ближайшее время.</div>
+      <button class="modal-close btn btn-primary" id="modalClose">Хорошо</button>
+    </div>
+  </div>
+
+  <button id="scrollTop" class="scroll-top-btn" aria-label="Наверх">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <script src="app.js"></script>
+</body>
+</html>

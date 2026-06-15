@@ -1,0 +1,13 @@
+{
+  "name": "Division Battles",
+  "short_name": "DB",
+  "description": "Киберспортивная лига по Dota 2 с системой дивизионов",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0d1a",
+  "theme_color": "#f59e0b",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "images/LOGO.PNG", "sizes": "512x512", "type": "image/png" }
+  ]
+}
